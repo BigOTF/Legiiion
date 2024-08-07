@@ -58,27 +58,3 @@
 .carousel-dot.active {  
     background-color: red;
 }
-
-
-.countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .time {
-    background-color: #f2f2f2;
-    padding: 10px 20px;
-    border-radius: 8px;
-  }
-  
-  .time-value {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  
-  .time-label {
-    display: block;
-    margin-top: 5px;
-    font-size: 1rem;
-  }

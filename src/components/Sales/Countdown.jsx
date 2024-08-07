@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { HiDotsVertical } from "react-icons/hi";
 
 const CountdownTimer = ({ targetDate }) => {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
@@ -27,22 +28,32 @@ const CountdownTimer = ({ targetDate }) => {
   }
 
   return (
-    <div className="countdown-timer">
-      <div className="time">
-        <span className="time-value">{timeRemaining.days}</span>
-        <span className="time-label">Days</span>
+    <div className="flex items-center justify-between w-[302px]">
+
+      <div className="flex flex-col items-center">
+        <span className="text-[12px] font-medium">Days</span>
+        <span className="text-[32px] font-bold">{timeRemaining.days}</span>
       </div>
-      <div className="time">
-        <span className="time-value">{timeRemaining.hours}</span>
-        <span className="time-label">Hours</span>
+
+      <div><HiDotsVertical className='text-[#E07575] mt-5' /></div>
+
+      <div className="flex flex-col items-center">
+        <span className="text-[12px] font-medium">Hours</span>
+        <span className="text-[32px] font-bold">{timeRemaining.hours}</span>
       </div>
-      <div className="time">
-        <span className="time-value">{timeRemaining.minutes}</span>
-        <span className="time-label">Minutes</span>
+
+      <div><HiDotsVertical className='text-[#E07575] mt-5' /></div>
+
+      <div className="flex flex-col items-center">
+        <span className="text-[12px] font-medium">Minutes</span>
+        <span className="text-[32px] font-bold">{timeRemaining.minutes}</span>
       </div>
-      <div className="time">
-        <span className="time-value">{timeRemaining.seconds}</span>
-        <span className="time-label">Seconds</span>
+
+      <div><HiDotsVertical className='text-[#E07575] mt-5' /></div>
+
+      <div className="flex flex-col items-center">
+        <span className="text-[12px] font-medium">Seconds</span>
+        <span className="text-[32px] font-bold">{timeRemaining.seconds}</span>
       </div>
     </div>
   );
