@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import CountdownTimer from './Countdown';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import StarRating from './StarRating';
 /* https://api.escuelajs.co/api/v1/products */
 /* https://fakestoreapi.com/products */
 
 const Sales = () => {
     const [product, setProduct] = useState([]);
+    const targetDate = '2024-08-15T00:00:00';
 
     useEffect(() => {
         const fetchItems = async() => {
             try {
-                const response = await fetch('https://api.escuelajs.co/api/v1/products');
+                const response = await fetch(' https://fakestoreapi.com/products');
                 const theData = await response.json();
                 console.log(theData);
                 return setProduct(theData);
@@ -23,16 +25,22 @@ const Sales = () => {
 
     const ProductData = () => {
         return  product.map((data) => {
+          
             return (
-                <div key={data.id}>
-                    <img src={data.images}/>
+                <div key={data.id} className='border w-[270px] h-[350px]'>
+
+                    <div className='w-[270px] h-[230px] bg-[#F5F5F5] flex items-center justify-center'>
+                        <img src={data.image} className='h-[180px] w-[190px] bg-[#F5F5F5] object-contain object-center bg-inherit'/>
+                    </div>      
+                    <div className='flex flex-col h-[104px] w-[201px] justify-between mt-4'>
+                        <p className='text-[16px] font-medium'>{data.title}</p>
+                        <p className='text-[#DB4444] text-[16px] font-medium'>{`$`}{data.price}</p>
+                        <StarRating rating={data.rating} maxStars={10} />
+                    </div>
                 </div>
             )
-        })
+        }).slice(0, 3);
     }
-
-    const targetDate = '2024-08-10T00:00:00';
-
 
   return (
     <section className='px-[135px] mt-[100px] mb-[100px]'>
@@ -57,6 +65,10 @@ const Sales = () => {
                 </div>
             </div>
            
+        </div>
+
+        <div className='mt-10 flex items-center gap-5'>
+            <ProductData />
         </div>
     </section>
   )
